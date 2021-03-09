@@ -5,6 +5,7 @@ export const Title = styled.Text`
   margin-top: ${(props) => props.theme.space[2]};
   text-transform: ${(props) => props.theme.transform[1]};
   color: ${(props) => props.theme.colors.ui.primary};
+  font-family: ${(props) => props.theme.fonts.body};
 `;
 
 export const RestaurantCard = styled(Card)`
