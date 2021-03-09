@@ -6,14 +6,14 @@ export default function App() {
   return (
     <>
       <SafeAreaView style={styles.container}>
-        <View style={{ backgroundColor: 'coral', padding: 16 }}>
-          <Text style={{ color: 'white' }}>Search Text Field</Text>
+        <View style={styles.search}>
+          <Text style={styles.text}>Search Text Field</Text>
         </View>
-        <View style={{ backgroundColor: 'blue', padding: 16, flex: 1 }}>
-          <Text style={{ color: 'white' }}>Restaurant List</Text>
+        <View style={styles.list}>
+          <Text style={styles.text}>Restaurant List</Text>
         </View>
       </SafeAreaView>
-      <ExpoStatusBar style='auto' />
+      <ExpoStatusBar style="auto" />
     </>
   );
 }
@@ -22,5 +22,17 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: StatusBar.currentHeight,
+  },
+  search: {
+    backgroundColor: 'coral',
+    padding: 16,
+  },
+  list: {
+    flex: 1,
+    backgroundColor: 'blue',
+    padding: 16,
+  },
+  text: {
+    color: 'white',
   },
 });
