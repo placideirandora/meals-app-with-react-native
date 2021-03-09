@@ -7,10 +7,10 @@ export const SafeArea = styled.SafeAreaView`
 `;
 
 export const SearchContainer = styled.View`
-  padding: 16px;
+  padding: ${(props) => props.theme.space[3]};
 `;
 
 export const RestaurantListContainer = styled.View`
   flex: 1;
-  padding: 16px;
+  padding: ${(props) => props.theme.space[3]};
 `;
