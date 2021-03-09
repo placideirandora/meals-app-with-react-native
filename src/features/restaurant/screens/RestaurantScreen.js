@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { StyleSheet, SafeAreaView, StatusBar, View } from 'react-native';
 import { Searchbar } from 'react-native-paper';
-import RestaurantInfo from '../components/RestaurantInfo';
+
+import RestaurantInfoCard from '../components/RestaurantInfoCard';
 
 const RestaurantScreen = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -12,14 +13,10 @@ const RestaurantScreen = () => {
     <>
       <SafeAreaView style={styles.container}>
         <View style={styles.search}>
-          <Searchbar
-            placeholder="Search Restaurant..."
-            onChangeText={handleChangeSearch}
-            value={searchQuery}
-          />
+          <Searchbar onChangeText={handleChangeSearch} value={searchQuery} />
         </View>
         <View style={styles.list}>
-          <RestaurantInfo />
+          <RestaurantInfoCard />
         </View>
       </SafeAreaView>
     </>
@@ -37,7 +34,6 @@ const styles = StyleSheet.create({
   },
   list: {
     flex: 1,
-    backgroundColor: 'blue',
     padding: 16,
   },
   text: {
