@@ -1,12 +1,17 @@
 import React from 'react';
 import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, SafeAreaView, StatusBar } from 'react-native';
+import { StyleSheet, Text, SafeAreaView, StatusBar, View } from 'react-native';
 
 export default function App() {
   return (
     <>
       <SafeAreaView style={styles.container}>
-        <Text style={{ color: 'white' }}>Our React Native Blank Canvas</Text>
+        <View style={{ backgroundColor: 'coral', padding: 16 }}>
+          <Text style={{ color: 'white' }}>Search Text Field</Text>
+        </View>
+        <View style={{ backgroundColor: 'blue', padding: 16, flex: 1 }}>
+          <Text style={{ color: 'white' }}>Restaurant List</Text>
+        </View>
       </SafeAreaView>
       <ExpoStatusBar style='auto' />
     </>
@@ -16,9 +21,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'coral',
     marginTop: StatusBar.currentHeight,
   },
 });
