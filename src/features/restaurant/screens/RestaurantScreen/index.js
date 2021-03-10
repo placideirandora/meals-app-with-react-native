@@ -3,10 +3,10 @@ import { Searchbar } from 'react-native-paper';
 
 import RestaurantCardInfo from '../../components/RestaurantCardInfo';
 import {
-  SafeArea,
   SearchContainer,
   RestaurantListContainer,
 } from './restaurantScreenElements';
+import { SafeArea } from '../../../../components/utils/SafeArea';
 
 const RestaurantScreen = () => {
   const [searchQuery, setSearchQuery] = useState('');
