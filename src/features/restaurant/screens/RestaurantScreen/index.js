@@ -19,9 +19,16 @@ const RestaurantScreen = () => {
         <SearchContainer>
           <Searchbar onChangeText={handleChangeSearch} value={searchQuery} />
         </SearchContainer>
-        <RestaurantListContainer>
-          <RestaurantCardInfo />
-        </RestaurantListContainer>
+        <RestaurantListContainer
+          data={[
+            { name: 'Card 1' },
+            { name: 'Card 2' },
+            { name: 'Card 3' },
+            { name: 'Card 4' },
+          ]}
+          keyExtractor={(item) => item.name}
+          renderItem={() => <RestaurantCardInfo />}
+        />
       </SafeArea>
     </>
   );

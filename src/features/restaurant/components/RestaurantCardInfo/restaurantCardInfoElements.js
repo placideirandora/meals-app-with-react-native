@@ -12,6 +12,7 @@ export const Title = styled.Text`
 export const RestaurantCard = styled(Card)`
   padding: ${(props) => props.theme.space[3]};
   background: ${(props) => props.theme.colors.bg.primary};
+  margin-bottom: ${(props) => props.theme.space[3]};
 `;
 
 export const RestaurantCardCover = styled(Card.Cover)`
