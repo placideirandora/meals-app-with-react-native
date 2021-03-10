@@ -14,9 +14,6 @@ import { Ionicons } from '@expo/vector-icons';
 import { theme } from './src/infrastructure/theme';
 import RestaurantScreen from './src/features/restaurant/screens/RestaurantScreen';
 import { SafeArea } from './src/components/utils/SafeArea';
-import { restaurantsRequest } from './src/services/restaurant/mock/restaurantService';
-
-restaurantsRequest();
 
 const content = { justifyContent: 'center', alignItems: 'center' };
 
