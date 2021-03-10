@@ -30,3 +30,19 @@ export const Address = styled.Text`
   color: ${(props) => props.theme.colors.ui.primary};
   text-transform: ${(props) => props.theme.transform[1]};
 `;
+
+export const IconsContainer = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+export const RestaurantTypeImage = styled.Image`
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+`;
+
+export const RightIconsContainer = styled.View`
+  flex-direction: row;
+  justify-content: space-evenly;
+`;
