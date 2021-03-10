@@ -39,10 +39,8 @@ export const IconsContainer = styled.View`
 export const RestaurantTypeImage = styled.Image`
   width: 20px;
   height: 20px;
-  margin-left: 10px;
 `;
 
 export const RightIconsContainer = styled.View`
   flex-direction: row;
-  justify-content: space-evenly;
 `;

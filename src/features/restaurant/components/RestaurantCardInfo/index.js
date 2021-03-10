@@ -11,9 +11,10 @@ import {
   IconsContainer,
   RestaurantTypeImage,
   RightIconsContainer,
-} from './RestaurantCardInfoElements';
+} from './restaurantCardInfoElements';
 import star from '../../../../../assets/star';
 import open from '../../../../../assets/open';
+import Spacer from '../../../../components/Spacer';
 
 const RestaurantCardInfo = ({ restaurant = {} }) => {
   const {
@@ -42,6 +43,7 @@ const RestaurantCardInfo = ({ restaurant = {} }) => {
           <RightIconsContainer>
             {isOpenNow && <SvgXml xml={open} width={20} height={20} />}
             {isClosedTemporarily && <Text>Closed</Text>}
+            <Spacer variant="left.medium" />
             <RestaurantTypeImage source={{ uri: icon }} />
           </RightIconsContainer>
         </IconsContainer>
