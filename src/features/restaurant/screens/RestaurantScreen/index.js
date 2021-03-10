@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Searchbar } from 'react-native-paper';
 
 import RestaurantCardInfo from '../../components/RestaurantCardInfo';
@@ -7,11 +7,14 @@ import {
   RestaurantListContainer,
 } from './restaurantScreenElements';
 import { SafeArea } from '../../../../components/utils/SafeArea';
+import { RestaurantsContext } from '../../../../services/restaurant/mock/restaurantContext';
 
 const RestaurantScreen = () => {
   const [searchQuery, setSearchQuery] = useState('');
 
   const handleChangeSearch = (query) => setSearchQuery(query);
+
+  const { restaurants } = useContext(RestaurantsContext);
 
   return (
     <>
@@ -20,13 +23,8 @@ const RestaurantScreen = () => {
           <Searchbar onChangeText={handleChangeSearch} value={searchQuery} />
         </SearchContainer>
         <RestaurantListContainer
-          data={[
-            { name: 'Card 1' },
-            { name: 'Card 2' },
-            { name: 'Card 3' },
-            { name: 'Card 4' },
-          ]}
-          keyExtractor={(item) => item.name}
+          data={restaurants}
+          keyExtractor={(item) => item.item}
           renderItem={() => <RestaurantCardInfo />}
         />
       </SafeArea>
