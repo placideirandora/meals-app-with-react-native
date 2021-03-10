@@ -6,7 +6,7 @@ import {
   SafeArea,
   SearchContainer,
   RestaurantListContainer,
-} from './RestaurantScreenElements';
+} from './restaurantScreenElements';
 
 const RestaurantScreen = () => {
   const [searchQuery, setSearchQuery] = useState('');
