@@ -18,7 +18,19 @@ export const restaurantsRequest = (location = '37.7749295,-122.4194155') => {
   });
 };
 
-const restaurantsTransform = (data) => camelize(data);
+const restaurantsTransform = (data) => {
+  const mappedData = data.results.map((restaurant) => {
+    return {
+      ...restaurant,
+      isOpenNow: restaurant.opening_hours && restaurant.opening_hours.open_now,
+      isClosedTemporarily: restaurant.business_status === 'CLOSED_TEMPORARILY',
+    };
+  });
+
+  const newData = camelize(mappedData);
+
+  return newData;
+};
 
 restaurantsRequest()
   .then(restaurantsTransform)
