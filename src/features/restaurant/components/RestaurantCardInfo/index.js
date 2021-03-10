@@ -23,8 +23,6 @@ const RestaurantCardInfo = ({ restaurant = {} }) => {
 
   const ratingArray = Array.from(new Array(Math.floor(rating)));
 
-  console.log('RATING ARRAY: ', ratingArray);
-
   return (
     <>
       <RestaurantCard elevation={5}>
