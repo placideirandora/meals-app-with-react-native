@@ -9,6 +9,7 @@ import {
 import { useFonts as useLato, Lato_400Regular } from '@expo-google-fonts/lato';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Ionicons } from '@expo/vector-icons';
 
 import { theme } from './src/infrastructure/theme';
 import RestaurantScreen from './src/features/restaurant/screens/RestaurantScreen';
@@ -47,11 +48,39 @@ export default function App() {
     return null;
   }
 
+  const screenOptions = ({ route }) => ({
+    tabBarIcon: ({ focused, color, size }) => {
+      let iconName;
+
+      if (route.name === 'Restaurants') {
+        iconName = focused ? 'fast-food' : 'fast-food-outline';
+      }
+
+      if (route.name === 'Maps') {
+        iconName = focused ? 'map' : 'map-outline';
+      }
+
+      if (route.name === 'Settings') {
+        iconName = focused ? 'settings' : 'settings-outline';
+      }
+
+      return <Ionicons name={iconName} size={size} color={color} />;
+    },
+  });
+
+  const tabBarOptions = {
+    activeTintColor: '#DB5A42',
+    inactiveTintColor: 'gray',
+  };
+
   return (
     <>
       <ThemeProvider theme={theme}>
         <NavigationContainer>
-          <Tab.Navigator>
+          <Tab.Navigator
+            screenOptions={screenOptions}
+            tabBarOptions={tabBarOptions}
+          >
             <Tab.Screen name="Restaurants" component={RestaurantScreen} />
             <Tab.Screen name="Maps" component={MapScreen} />
             <Tab.Screen name="Settings" component={SettingsScreen} />
