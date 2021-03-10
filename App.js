@@ -10,23 +10,13 @@ import { useFonts as useLato, Lato_400Regular } from '@expo-google-fonts/lato';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
-import camelize from 'camelize';
 
 import { theme } from './src/infrastructure/theme';
 import RestaurantScreen from './src/features/restaurant/screens/RestaurantScreen';
 import { SafeArea } from './src/components/utils/SafeArea';
 import { restaurantsRequest } from './src/services/restaurant/mock/restaurantService';
 
-const restaurantsTransform = (data) => camelize(data);
-
-restaurantsRequest()
-  .then(restaurantsTransform)
-  .then((res) => {
-    console.log(res);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+restaurantsRequest();
 
 const content = { justifyContent: 'center', alignItems: 'center' };
 
