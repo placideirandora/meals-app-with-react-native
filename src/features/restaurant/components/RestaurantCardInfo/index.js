@@ -16,15 +16,15 @@ import star from '../../../../../assets/star';
 import open from '../../../../../assets/open';
 import Spacer from '../../../../components/Spacer';
 
-const RestaurantCardInfo = ({ restaurant = {} }) => {
+const RestaurantCardInfo = ({ restaurant }) => {
   const {
-    name = 'Sundowner',
-    icon = 'https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png',
-    photos = ['https://picsum.photos/400'],
-    address = '50 KG 23 St',
-    isOpenNow = true,
-    rating = 4,
-    isClosedTemporarily = false,
+    name,
+    icon,
+    photos,
+    address,
+    isOpenNow,
+    rating,
+    isClosedTemporarily,
   } = restaurant;
 
   const ratingArray = Array.from(new Array(Math.floor(rating)));
