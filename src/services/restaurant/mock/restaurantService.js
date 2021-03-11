@@ -1,6 +1,6 @@
 import camelize from 'camelize';
 
-import { mocks } from './index';
+import { mockImages, mocks } from './index';
 
 export const restaurantsRequest = (location = '37.7749295,-122.4194155') => {
   return new Promise((resolve, reject) => {
@@ -20,6 +20,10 @@ export const restaurantsRequest = (location = '37.7749295,-122.4194155') => {
 
 export const restaurantsTransform = (data) => {
   const mappedData = data.results.map((restaurant) => {
+    restaurant.photos = restaurant.photos.map(() => {
+      return mockImages[Math.ceil(Math.random() * (mockImages.length - 1))];
+    });
+
     return {
       ...restaurant,
       isOpenNow: restaurant.opening_hours && restaurant.opening_hours.open_now,
