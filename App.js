@@ -50,19 +50,19 @@ export default function App() {
   }
 
   const screenOptions = ({ route }) => ({
-    tabBarIcon: ({ focused, color, size }) => {
+    tabBarIcon: ({ color, size }) => {
       let iconName;
 
       if (route.name === 'Restaurants') {
-        iconName = focused ? 'fast-food' : 'fast-food-outline';
+        iconName = 'fast-food';
       }
 
       if (route.name === 'Maps') {
-        iconName = focused ? 'map' : 'map-outline';
+        iconName = 'map';
       }
 
       if (route.name === 'Settings') {
-        iconName = focused ? 'settings' : 'settings-outline';
+        iconName = 'settings';
       }
 
       return <Ionicons name={iconName} size={size} color={color} />;
