@@ -15,6 +15,7 @@ import { theme } from './src/infrastructure/theme';
 import RestaurantScreen from './src/features/restaurant/screens/RestaurantScreen';
 import { SafeArea } from './src/components/utils/SafeArea';
 import { RestaurantsContextProvider } from './src/services/restaurant/mock/restaurantContext';
+import { LocationContextProvider } from './src/services/location/locationContext';
 
 const content = { justifyContent: 'center', alignItems: 'center' };
 
@@ -77,18 +78,20 @@ export default function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <RestaurantsContextProvider>
-          <NavigationContainer>
-            <Tab.Navigator
-              screenOptions={screenOptions}
-              tabBarOptions={tabBarOptions}
-            >
-              <Tab.Screen name="Restaurants" component={RestaurantScreen} />
-              <Tab.Screen name="Maps" component={MapScreen} />
-              <Tab.Screen name="Settings" component={SettingsScreen} />
-            </Tab.Navigator>
-          </NavigationContainer>
-        </RestaurantsContextProvider>
+        <LocationContextProvider>
+          <RestaurantsContextProvider>
+            <NavigationContainer>
+              <Tab.Navigator
+                screenOptions={screenOptions}
+                tabBarOptions={tabBarOptions}
+              >
+                <Tab.Screen name="Restaurants" component={RestaurantScreen} />
+                <Tab.Screen name="Maps" component={MapScreen} />
+                <Tab.Screen name="Settings" component={SettingsScreen} />
+              </Tab.Navigator>
+            </NavigationContainer>
+          </RestaurantsContextProvider>
+        </LocationContextProvider>
       </ThemeProvider>
       <ExpoStatusBar style="auto" />
     </>
