@@ -42,7 +42,7 @@ const RestaurantCardInfo = ({ restaurant }) => {
           </Rating>
           <RightIconsContainer>
             {isOpenNow && <SvgXml xml={open} width={20} height={20} />}
-            {isClosedTemporarily && <Text>Closed</Text>}
+            {isClosedTemporarily && <Text>Closed Temporarily</Text>}
             <Spacer variant="left.medium" />
             <RestaurantTypeImage source={{ uri: icon }} />
           </RightIconsContainer>
