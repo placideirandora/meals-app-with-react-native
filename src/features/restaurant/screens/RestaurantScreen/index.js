@@ -24,8 +24,8 @@ const RestaurantScreen = () => {
         </SearchContainer>
         <RestaurantListContainer
           data={restaurants}
-          keyExtractor={(item) => item.item}
-          renderItem={() => <RestaurantCardInfo />}
+          keyExtractor={(item) => item.name}
+          renderItem={({ item }) => <RestaurantCardInfo restaurant={item} />}
         />
       </SafeArea>
     </>
