@@ -1,4 +1,4 @@
-import { FlatList } from 'react-native';
+import { FlatList, ActivityIndicator } from 'react-native';
 import styled from 'styled-components/native';
 
 export const SearchContainer = styled.View`
@@ -10,3 +10,9 @@ export const RestaurantListContainer = styled(FlatList).attrs({
     padding: 16,
   },
 })``;
+
+export const LoadingSpinner = styled(ActivityIndicator)`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+`;
