@@ -9,11 +9,11 @@ export const locationRequest = (searchTerm) => {
     if (!locationMock) {
       setTimeout(() => {
         reject('Location not found');
-      }, 5000);
+      }, 4000);
     } else {
       setTimeout(() => {
         resolve(locationMock);
-      }, 5000);
+      }, 4000);
     }
   });
 };

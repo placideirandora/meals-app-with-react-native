@@ -9,11 +9,11 @@ export const restaurantsRequest = (location = '37.7749295,-122.4194155') => {
     if (!mock) {
       setTimeout(() => {
         reject('Location not found');
-      }, 5000);
+      }, 4000);
     } else {
       setTimeout(() => {
         resolve(mock);
-      }, 5000);
+      }, 4000);
     }
   });
 };
