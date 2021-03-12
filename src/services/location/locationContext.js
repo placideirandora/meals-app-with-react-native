@@ -1,4 +1,4 @@
-import React, { useState, createContext } from 'react';
+import React, { useState, createContext, useEffect, useCallback } from 'react';
 
 import { locationRequest, locationTransform } from './locationService';
 
@@ -10,12 +10,14 @@ export const LocationContextProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const fetchLocation = async (searchKeyword) => {
-    try {
-      setLoading(true);
-      setKeyword(searchKeyword);
+  const initSearchLocation = (searchKeyword) => {
+    setLoading(true);
+    setKeyword(searchKeyword);
+  };
 
-      const data = await locationRequest(searchKeyword.toLowerCase());
+  const fetchLocation = useCallback(async () => {
+    try {
+      const data = await locationRequest(keyword.toLowerCase());
       const transformedData = locationTransform(data);
 
       setLocation(transformedData);
@@ -24,14 +26,20 @@ export const LocationContextProvider = ({ children }) => {
       setError(err);
       setLoading(false);
     }
-  };
+  }, [keyword]);
+
+  // TODO: LOOK INTO WHY FETCH LOCATION FUNCTION IS BEING RUN TWICE
+
+  useEffect(() => {
+    fetchLocation();
+  }, [keyword, fetchLocation]);
 
   return (
     <LocationContext.Provider
       value={{
         loading,
         location,
-        search: fetchLocation,
+        search: initSearchLocation,
         error,
         keyword,
       }}
