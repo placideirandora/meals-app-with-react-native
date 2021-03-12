@@ -14,7 +14,7 @@ import {
 import { theme } from './src/infrastructure/theme';
 import RestaurantScreen from './src/features/restaurant/screens/RestaurantScreen';
 import { SafeArea } from './src/components/utils/SafeArea';
-import { RestaurantsContextProvider } from './src/services/restaurant/mock/restaurantContext';
+import { RestaurantContextProvider } from './src/services/restaurant/mock/restaurantContext';
 import { LocationContextProvider } from './src/services/location/locationContext';
 
 const content = { justifyContent: 'center', alignItems: 'center' };
@@ -79,7 +79,7 @@ export default function App() {
     <>
       <ThemeProvider theme={theme}>
         <LocationContextProvider>
-          <RestaurantsContextProvider>
+          <RestaurantContextProvider>
             <NavigationContainer>
               <Tab.Navigator
                 screenOptions={screenOptions}
@@ -90,7 +90,7 @@ export default function App() {
                 <Tab.Screen name="Settings" component={SettingsScreen} />
               </Tab.Navigator>
             </NavigationContainer>
-          </RestaurantsContextProvider>
+          </RestaurantContextProvider>
         </LocationContextProvider>
       </ThemeProvider>
       <ExpoStatusBar style="auto" />

@@ -6,11 +6,11 @@ import {
   LoadingSpinner,
 } from './restaurantScreenElements';
 import { SafeArea } from '../../../../components/utils/SafeArea';
-import { RestaurantsContext } from '../../../../services/restaurant/mock/restaurantContext';
+import { RestaurantContext } from '../../../../services/restaurant/mock/restaurantContext';
 import Search from '../../components/Search';
 
 const RestaurantScreen = () => {
-  const { loading, restaurants } = useContext(RestaurantsContext);
+  const { loading, restaurants } = useContext(RestaurantContext);
 
   return (
     <>
