@@ -9,11 +9,11 @@ export const restaurantsRequest = (location) => {
     if (!mock) {
       setTimeout(() => {
         reject('Location not found');
-      }, 4000);
+      }, 3000);
     } else {
       setTimeout(() => {
         resolve(mock);
-      }, 4000);
+      }, 3000);
     }
   });
 };
