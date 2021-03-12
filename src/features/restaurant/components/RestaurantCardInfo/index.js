@@ -21,7 +21,7 @@ const RestaurantCardInfo = ({ restaurant }) => {
     name,
     icon,
     photos,
-    vicinity,
+    address,
     isOpenNow,
     isClosedTemporarily,
   } = restaurant;
@@ -46,7 +46,7 @@ const RestaurantCardInfo = ({ restaurant }) => {
             <RestaurantTypeImage source={{ uri: icon }} />
           </RightIconsContainer>
         </IconsContainer>
-        <Address>{vicinity}</Address>
+        <Address>{address}</Address>
       </RestaurantCard>
     </>
   );
