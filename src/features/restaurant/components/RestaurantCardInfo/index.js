@@ -21,13 +21,12 @@ const RestaurantCardInfo = ({ restaurant }) => {
     name,
     icon,
     photos,
-    address,
+    vicinity,
     isOpenNow,
-    rating,
     isClosedTemporarily,
   } = restaurant;
 
-  const ratingArray = Array.from(new Array(Math.floor(rating)));
+  const ratingArray = Array.from(new Array(5));
 
   return (
     <>
@@ -47,7 +46,7 @@ const RestaurantCardInfo = ({ restaurant }) => {
             <RestaurantTypeImage source={{ uri: icon }} />
           </RightIconsContainer>
         </IconsContainer>
-        <Address>{address}</Address>
+        <Address>{vicinity}</Address>
       </RestaurantCard>
     </>
   );
