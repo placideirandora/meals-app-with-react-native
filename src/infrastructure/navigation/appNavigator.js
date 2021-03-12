@@ -4,7 +4,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 import { Text } from 'react-native';
 
-import RestaurantScreen from '../../features/restaurant/screens/RestaurantScreen';
+import RestaurantNavigator from './restaurantNavigator';
 import { SafeArea } from '../../components/utils/SafeArea';
 
 const content = { justifyContent: 'center', alignItems: 'center' };
@@ -60,7 +60,7 @@ const AppNavigator = () => {
           screenOptions={screenOptions}
           tabBarOptions={tabBarOptions}
         >
-          <Tab.Screen name="Restaurants" component={RestaurantScreen} />
+          <Tab.Screen name="Restaurants" component={RestaurantNavigator} />
           <Tab.Screen name="Maps" component={MapScreen} />
           <Tab.Screen name="Settings" component={SettingsScreen} />
         </Tab.Navigator>
