@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Pressable } from 'react-native';
 
 import RestaurantCardInfo from '../../components/RestaurantCardInfo';
 import {
@@ -9,7 +10,7 @@ import { SafeArea } from '../../../../components/utils/SafeArea';
 import { RestaurantContext } from '../../../../services/restaurant/mock/restaurantContext';
 import Search from '../../components/Search';
 
-const RestaurantScreen = () => {
+const RestaurantScreen = ({ navigation }) => {
   const { loading, restaurants } = useContext(RestaurantContext);
 
   return (
@@ -22,7 +23,13 @@ const RestaurantScreen = () => {
           <RestaurantListContainer
             data={restaurants}
             keyExtractor={(item) => item.name}
-            renderItem={({ item }) => <RestaurantCardInfo restaurant={item} />}
+            renderItem={({ item }) => (
+              <Pressable
+                onPress={() => navigation.navigate('RestaurantDetail')}
+              >
+                <RestaurantCardInfo restaurant={item} />
+              </Pressable>
+            )}
           />
         )}
       </SafeArea>
