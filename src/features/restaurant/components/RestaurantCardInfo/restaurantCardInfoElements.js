@@ -45,3 +45,7 @@ export const RestaurantTypeImage = styled.Image`
 export const RightIconsContainer = styled.View`
   flex-direction: row;
 `;
+
+export const TemporaryClosure = styled.Text`
+  color: #db5a42;
+`;

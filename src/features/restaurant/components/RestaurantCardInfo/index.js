@@ -1,5 +1,4 @@
 import React from 'react';
-import { Text } from 'react-native';
 import { SvgXml } from 'react-native-svg';
 
 import {
@@ -11,6 +10,7 @@ import {
   IconsContainer,
   RestaurantTypeImage,
   RightIconsContainer,
+  TemporaryClosure,
 } from './restaurantCardInfoElements';
 import star from '../../../../../assets/star';
 import open from '../../../../../assets/open';
@@ -41,7 +41,9 @@ const RestaurantCardInfo = ({ restaurant }) => {
           </Rating>
           <RightIconsContainer>
             {isOpenNow && <SvgXml xml={open} width={20} height={20} />}
-            {isClosedTemporarily && <Text>Closed Temporarily</Text>}
+            {isClosedTemporarily && (
+              <TemporaryClosure>Closed Temporarily</TemporaryClosure>
+            )}
             <Spacer variant="left.medium" />
             <RestaurantTypeImage source={{ uri: icon }} />
           </RightIconsContainer>
