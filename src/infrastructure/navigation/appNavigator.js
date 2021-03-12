@@ -6,16 +6,9 @@ import { Text } from 'react-native';
 
 import RestaurantNavigator from './restaurantNavigator';
 import { SafeArea } from '../../components/utils/SafeArea';
+import MapScreen from '../../features/map/screens/MapScreen';
 
 const content = { justifyContent: 'center', alignItems: 'center' };
-
-const MapScreen = () => {
-  return (
-    <SafeArea style={content}>
-      <Text>Maps!</Text>
-    </SafeArea>
-  );
-};
 
 const SettingsScreen = () => {
   return (
