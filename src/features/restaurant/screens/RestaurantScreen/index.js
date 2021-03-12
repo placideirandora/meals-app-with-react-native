@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Pressable } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 
 import RestaurantCardInfo from '../../components/RestaurantCardInfo';
 import {
@@ -24,11 +24,11 @@ const RestaurantScreen = ({ navigation }) => {
             data={restaurants}
             keyExtractor={(item) => item.name}
             renderItem={({ item }) => (
-              <Pressable
+              <TouchableOpacity
                 onPress={() => navigation.navigate('RestaurantDetail')}
               >
                 <RestaurantCardInfo restaurant={item} />
-              </Pressable>
+              </TouchableOpacity>
             )}
           />
         )}
