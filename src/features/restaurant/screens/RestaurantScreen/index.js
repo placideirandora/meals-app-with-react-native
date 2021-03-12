@@ -25,7 +25,9 @@ const RestaurantScreen = ({ navigation }) => {
             keyExtractor={(item) => item.name}
             renderItem={({ item }) => (
               <TouchableOpacity
-                onPress={() => navigation.navigate('RestaurantDetail')}
+                onPress={() =>
+                  navigation.navigate('RestaurantDetail', { restaurant: item })
+                }
               >
                 <RestaurantCardInfo restaurant={item} />
               </TouchableOpacity>
