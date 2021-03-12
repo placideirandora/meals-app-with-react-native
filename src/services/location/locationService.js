@@ -7,13 +7,9 @@ export const locationRequest = (searchTerm) => {
     const locationMock = locations[searchTerm];
 
     if (!locationMock) {
-      setTimeout(() => {
-        reject('Location not found');
-      }, 4000);
+      reject('Location not found');
     } else {
-      setTimeout(() => {
-        resolve(locationMock);
-      }, 4000);
+      resolve(locationMock);
     }
   });
 };
