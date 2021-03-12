@@ -1,19 +1,22 @@
-import React, { useState, createContext, useEffect } from 'react';
+import React, { useState, createContext, useEffect, useContext } from 'react';
 
+import { LocationContext } from '../../location/locationContext';
 import { restaurantsRequest, restaurantsTransform } from './restaurantService';
 
-export const RestaurantsContext = createContext();
+export const RestaurantContext = createContext();
 
-export const RestaurantsContextProvider = ({ children }) => {
+export const RestaurantContextProvider = ({ children }) => {
   const [restaurants, setRestaurants] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const fetchRestaurants = async () => {
+  const { location } = useContext(LocationContext);
+
+  const fetchRestaurants = async (place) => {
     try {
       setLoading(true);
 
-      const data = await restaurantsRequest();
+      const data = await restaurantsRequest(place);
       const transformedData = restaurantsTransform(data);
 
       setRestaurants(transformedData);
@@ -25,12 +28,15 @@ export const RestaurantsContextProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    fetchRestaurants();
-  }, []);
+    if (location) {
+      const locationString = `${location.lat},${location.lng}`;
+      fetchRestaurants(locationString);
+    }
+  }, [location]);
 
   return (
-    <RestaurantsContext.Provider value={{ restaurants, loading, error }}>
+    <RestaurantContext.Provider value={{ restaurants, loading, error }}>
       {children}
-    </RestaurantsContext.Provider>
+    </RestaurantContext.Provider>
   );
 };
