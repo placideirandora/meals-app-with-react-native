@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Searchbar } from 'react-native-paper';
 
 import { SearchContainer } from './searchElements';
@@ -9,6 +9,10 @@ const Search = () => {
   const [searchKeyword, setSearchKeyword] = useState(keyword);
 
   const handleChangeSearch = (Keyword) => setSearchKeyword(Keyword);
+
+  useEffect(() => {
+    setSearchKeyword(keyword);
+  }, [keyword]);
 
   return (
     <>
