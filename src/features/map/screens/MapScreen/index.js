@@ -31,8 +31,16 @@ const MapScreen = () => {
         }}
       >
         {restaurants.map((restaurant) => {
-          // return <Map.Marker></Map.Marker>;
-          return null;
+          return (
+            <Map.Marker
+              key={restaurant.name}
+              title={restaurant.name}
+              coordinate={{
+                latitude: restaurant.geometry.location.lat,
+                longitude: restaurant.geometry.location.lng,
+              }}
+            />
+          );
         })}
       </Map>
     </MapContainer>
