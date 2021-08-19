@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 
 import Search from '../../components/Search';
 import { Map, MapContainer } from './mapElements';
+import MapCallout from '../../components/MapCallout';
 import { LocationContext } from '../../../../services/location/locationContext';
 import { RestaurantContext } from '../../../../services/restaurant/mock/restaurantContext';
 
@@ -39,7 +40,11 @@ const MapScreen = () => {
                 latitude: restaurant.geometry.location.lat,
                 longitude: restaurant.geometry.location.lng,
               }}
-            />
+            >
+              <Map.Callout>
+                <MapCallout restaurant={restaurant} />
+              </Map.Callout>
+            </Map.Marker>
           );
         })}
       </Map>
