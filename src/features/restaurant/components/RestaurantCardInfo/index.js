@@ -15,6 +15,7 @@ import {
 import star from '../../../../../assets/star';
 import open from '../../../../../assets/open';
 import Spacer from '../../../../components/Spacer';
+import Favorites from '../../../../components/Favorites';
 
 const RestaurantCardInfo = ({ restaurant }) => {
   const {
@@ -29,28 +30,27 @@ const RestaurantCardInfo = ({ restaurant }) => {
   const ratingArray = Array.from(new Array(5));
 
   return (
-    <>
-      <RestaurantCard elevation={5}>
-        <RestaurantCardCover source={{ uri: photos[0] }} />
-        <Title>{name}</Title>
-        <IconsContainer>
-          <Rating>
-            {ratingArray.map((_, index) => (
-              <SvgXml xml={star} width={20} height={20} key={index} />
-            ))}
-          </Rating>
-          <RightIconsContainer>
-            {isOpenNow && <SvgXml xml={open} width={20} height={20} />}
-            {isClosedTemporarily && (
-              <TemporaryClosure>Closed Temporarily</TemporaryClosure>
-            )}
-            <Spacer variant="left.medium" />
-            <RestaurantTypeImage source={{ uri: icon }} />
-          </RightIconsContainer>
-        </IconsContainer>
-        <Address>{address}</Address>
-      </RestaurantCard>
-    </>
+    <RestaurantCard elevation={5}>
+      <Favorites restaurant={restaurant} />
+      <RestaurantCardCover source={{ uri: photos[0] }} />
+      <Title>{name}</Title>
+      <IconsContainer>
+        <Rating>
+          {ratingArray.map((_, index) => (
+            <SvgXml xml={star} width={20} height={20} key={index} />
+          ))}
+        </Rating>
+        <RightIconsContainer>
+          {isOpenNow && <SvgXml xml={open} width={20} height={20} />}
+          {isClosedTemporarily && (
+            <TemporaryClosure>Closed Temporarily</TemporaryClosure>
+          )}
+          <Spacer variant="left.medium" />
+          <RestaurantTypeImage source={{ uri: icon }} />
+        </RightIconsContainer>
+      </IconsContainer>
+      <Address>{address}</Address>
+    </RestaurantCard>
   );
 };
 
